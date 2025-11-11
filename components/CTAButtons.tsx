@@ -16,7 +16,11 @@ export const CalendarIcon = () => (
 const handleCalendlyClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     if ((window as any).Calendly) {
-        (window as any).Calendly.initPopupWidget({ url: CONTACT_INFO.calendly });
+        (window as any).Calendly.initPopupWidget({
+            url: CONTACT_INFO.calendly,
+            branding: false,
+            hideGdprBanner: true,
+        });
     }
 };
 
