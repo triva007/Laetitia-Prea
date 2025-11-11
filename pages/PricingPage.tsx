@@ -1,6 +1,4 @@
 import React from 'react';
-import { CONTACT_INFO } from '../constants';
-import { CalendarIcon } from '../components/CTAButtons';
 
 // Meta Title: Tarifs Nutrithérapeute Laetitia Préa - Saint-Cloud & Boulogne
 // Meta Description: Consultez les tarifs de votre nutrithérapeute à Saint-Cloud et Boulogne-Billancourt. Formules d'accompagnement nutritionnel personnalisé.
@@ -13,17 +11,6 @@ interface PricingCardProps {
   featured?: boolean;
 }
 
-const handleCalendlyClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    if ((window as any).Calendly) {
-        (window as any).Calendly.initPopupWidget({
-            url: CONTACT_INFO.calendly,
-            branding: false,
-            hideGdprBanner: true,
-        });
-    }
-};
-
 const PricingCard = ({ title, duration, price, children, featured = false }: PricingCardProps) => (
   <div className={`border-2 rounded-lg p-6 sm:p-8 text-center flex flex-col ${featured ? 'border-brand-green bg-white shadow-2xl md:scale-105' : 'border-gray-200 bg-white'}`}>
     <h2 className="text-2xl font-semibold text-brand-dark">{title}</h2>
@@ -32,14 +19,6 @@ const PricingCard = ({ title, duration, price, children, featured = false }: Pri
     <div className="text-left text-gray-600 space-y-4 flex-grow">
       {children}
     </div>
-    <a 
-      href={CONTACT_INFO.calendly} 
-      onClick={handleCalendlyClick}
-      className={`inline-flex items-center justify-center mt-8 text-base font-semibold py-3 px-8 rounded-full transition-all duration-300 cursor-pointer ${featured ? 'bg-brand-green text-white hover:bg-brand-dark' : 'bg-brand-light-green text-brand-dark hover:bg-brand-green hover:text-white'}`}
-    >
-      <CalendarIcon />
-      Prendre rendez-vous
-    </a>
   </div>
 );
 

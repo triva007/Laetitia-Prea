@@ -8,23 +8,6 @@ const PhoneIcon = () => (
     </svg>
 );
 
-const CalendarIcon = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-2" viewBox="0 0 20 20" fill="currentColor">
-        <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd" />
-    </svg>
-);
-
-const handleCalendlyClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    if ((window as any).Calendly) {
-        (window as any).Calendly.initPopupWidget({
-            url: CONTACT_INFO.calendly,
-            branding: false,
-            hideGdprBanner: true,
-        });
-    }
-};
-
 const Logo = () => (
     <div className="flex items-center space-x-2">
         <svg className="h-8 w-8 text-brand-green" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -63,13 +46,9 @@ const Header = () => {
           ))}
         </nav>
         <div className="hidden lg:flex items-center space-x-2">
-            <a href={CONTACT_INFO.phoneLink} className="flex items-center text-sm bg-brand-light-green text-brand-dark font-semibold py-2 px-4 rounded-full hover:bg-brand-green hover:text-white transition-all duration-300">
+            <a href={CONTACT_INFO.phoneLink} className="flex items-center text-sm bg-brand-green text-white font-semibold py-2 px-4 rounded-full hover:bg-brand-dark transition-all duration-300">
                 <PhoneIcon />
                 Appeler
-            </a>
-            <a href={CONTACT_INFO.calendly} onClick={handleCalendlyClick} className="flex items-center text-sm bg-brand-green text-white font-semibold py-2 px-4 rounded-full hover:bg-brand-dark transition-all duration-300 cursor-pointer">
-                <CalendarIcon />
-                Réserver un appel
             </a>
         </div>
         <div className="lg:hidden">
@@ -96,13 +75,9 @@ const Header = () => {
               </NavLink>
             ))}
             <div className="flex flex-col space-y-3 pt-4">
-                <a href={CONTACT_INFO.phoneLink} className="flex items-center justify-center bg-brand-light-green text-brand-dark font-semibold py-2 px-6 rounded-full hover:bg-brand-green hover:text-white transition-all duration-300">
+                <a href={CONTACT_INFO.phoneLink} className="flex items-center justify-center bg-brand-green text-white font-semibold py-2 px-6 rounded-full hover:bg-brand-dark transition-all duration-300">
                     <PhoneIcon />
                     Appeler Laetitia
-                </a>
-                <a href={CONTACT_INFO.calendly} onClick={handleCalendlyClick} className="flex items-center justify-center bg-brand-green text-white font-semibold py-2 px-6 rounded-full hover:bg-brand-dark transition-all duration-300 cursor-pointer">
-                    <CalendarIcon />
-                    Réserver un appel
                 </a>
             </div>
           </nav>

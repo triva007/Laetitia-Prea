@@ -1,6 +1,4 @@
 import React from 'react';
-import { CONTACT_INFO } from '../constants';
-import { CalendarIcon } from '../components/CTAButtons';
 
 // Meta Title: Accompagnements Nutrition à Saint-Cloud & Boulogne | Laetitia Préa
 // Meta Description: Découvrez mes accompagnements en nutrition à Boulogne et Saint-Cloud : nutrition clinique, micronutrition... Solutions personnalisées.
@@ -10,31 +8,12 @@ interface ServiceCardProps {
   children?: React.ReactNode;
 }
 
-const handleCalendlyClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    if ((window as any).Calendly) {
-        (window as any).Calendly.initPopupWidget({
-            url: CONTACT_INFO.calendly,
-            branding: false,
-            hideGdprBanner: true,
-        });
-    }
-};
-
 const ServiceCard = ({ title, children }: ServiceCardProps) => (
   <div className="bg-white p-6 sm:p-8 rounded-lg shadow-lg transform hover:-translate-y-2 transition-transform duration-300">
     <h2 className="text-2xl md:text-3xl font-serif font-semibold text-brand-green mb-4">{title}</h2>
     <div className="text-gray-700 space-y-4 leading-relaxed">
       {children}
     </div>
-    <a 
-      href={CONTACT_INFO.calendly} 
-      onClick={handleCalendlyClick}
-      className="inline-flex items-center mt-6 text-base bg-brand-green text-white font-semibold py-2 px-6 rounded-full hover:bg-brand-dark transition-all duration-300 cursor-pointer"
-    >
-      <CalendarIcon />
-      Réserver un appel découverte
-    </a>
   </div>
 );
 
