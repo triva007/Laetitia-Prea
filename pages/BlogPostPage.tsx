@@ -1,38 +1,30 @@
 
-import React, { useState, useEffect } from 'react';
+
+import React, { useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
+import { BLOG_POSTS } from '../constants';
 import { CTAButtons } from '../components/CTAButtons';
-import type { BlogPost } from '../types';
-import MarkdownRenderer from '../components/MarkdownRenderer';
 
 const BlogPostPage = () => {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
-  const [post, setPost] = useState<BlogPost | null>(null);
-  const [loading, setLoading] = useState(true);
+
+  const post = BLOG_POSTS.find(p => p.slug === slug);
 
   useEffect(() => {
-    fetch('/blog/posts.json')
-      .then(res => res.json())
-      .then((posts: BlogPost[]) => {
-        const currentPost = posts.find(p => p.slug === slug);
-        if (currentPost) {
-          setPost(currentPost);
-          document.title = `${currentPost.metaTitle} | Laetitia Préa`;
-        } else {
-          navigate('/blog');
-        }
-        setLoading(false);
-      });
-  }, [slug, navigate]);
+    if (post) {
+      document.title = `${post.metaTitle} | Laetitia Préa`;
+    } else {
+        // Redirect to blog list if post not found
+        navigate('/blog');
+    }
+  }, [post, navigate]);
 
-  if (loading || !post) {
-    return (
-        <div className="flex justify-center items-center h-64">
-            <div className="text-xl text-brand-green">Chargement de l'article...</div>
-        </div>
-    );
+  if (!post) {
+    return null; // Or a loading/not-found component
   }
+
+  const ArticleComponent = post.component;
 
   return (
     <div className="bg-white">
@@ -48,7 +40,7 @@ const BlogPostPage = () => {
           </header>
           
           <article className="prose prose-lg max-w-none prose-h2:text-brand-green prose-h3:text-brand-dark prose-a:text-brand-accent prose-p:leading-relaxed prose-ul:leading-relaxed prose-ol:leading-relaxed space-y-6">
-             <MarkdownRenderer content={post.content} />
+            <ArticleComponent />
           </article>
           
           <div className="mt-16 pt-8 border-t border-gray-200 bg-brand-beige p-8 rounded-lg text-center">
