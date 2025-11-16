@@ -1,10 +1,17 @@
 
-
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { BLOG_POSTS } from '../constants';
+import type { BlogPost } from '../types';
 
 const BlogListPage = () => {
+  const [posts, setPosts] = useState<BlogPost[]>([]);
+
+  useEffect(() => {
+    fetch('/blog/posts.json')
+      .then(res => res.json())
+      .then(data => setPosts(data.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())));
+  }, []);
+
   return (
     <div className="container mx-auto px-4 sm:px-6 py-12 md:py-20">
       <div className="text-center mb-12">
@@ -15,7 +22,7 @@ const BlogListPage = () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-        {BLOG_POSTS.map(post => (
+        {posts.map(post => (
           <Link key={post.slug} to={`/blog/${post.slug}`} className="block bg-white rounded-lg shadow-lg overflow-hidden group transform hover:-translate-y-2 transition-transform duration-300 border border-gray-200/80">
             <img src={post.imageUrl} alt={`Illustration pour l'article ${post.title}`} className="w-full h-48 object-cover" />
             <div className="p-6 flex flex-col h-full">

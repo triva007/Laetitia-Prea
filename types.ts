@@ -12,12 +12,12 @@ export interface Testimonial {
   location: string;
 }
 
-export interface BlogPostMeta {
+export interface BlogPost {
   slug: string;
   title: string;
   description: string;
   metaTitle: string;
   metaDescription: string;
-  component: React.ComponentType;
+  content: string; // Markdown content of the blog post
   imageUrl: string;
 }
