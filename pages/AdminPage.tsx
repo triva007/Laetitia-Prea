@@ -143,16 +143,14 @@ const AdminPage = () => {
         setJsonOutput(JSON.stringify(updatedPosts, null, 2));
     };
 
-    const renderStep = (step: number, title: string, children: React.ReactNode, condition = true) => (
-        condition && (
-            <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200">
-                <h2 className="text-2xl font-serif font-semibold text-brand-dark mb-4">
-                    <span className="bg-brand-green text-white rounded-full h-8 w-8 inline-flex items-center justify-center mr-3">{step}</span>
-                    {title}
-                </h2>
-                {children}
-            </div>
-        )
+    const renderStep = (step: number, title: string, children: React.ReactNode) => (
+        <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200">
+            <h2 className="text-2xl font-serif font-semibold text-brand-dark mb-4">
+                <span className="bg-brand-green text-white rounded-full h-8 w-8 inline-flex items-center justify-center mr-3">{step}</span>
+                {title}
+            </h2>
+            {children}
+        </div>
     );
 
     return (
@@ -173,7 +171,7 @@ const AdminPage = () => {
                     </button>
                 ))}
 
-                {renderStep(2, "Choisir un sujet", (
+                {ideas.length > 0 && renderStep(2, "Choisir un sujet", (
                     <div className="flex flex-col space-y-3">
                         {ideas.map((idea, index) => (
                             <button key={index} onClick={() => setSelectedIdea(idea)} className={`text-left p-3 rounded-lg border-2 transition-colors ${selectedIdea === idea ? 'bg-brand-light-green/50 border-brand-green' : 'bg-gray-50 border-gray-200 hover:border-brand-green'}`}>
@@ -181,15 +179,15 @@ const AdminPage = () => {
                             </button>
                         ))}
                     </div>
-                ), ideas.length > 0)}
+                ))}
 
-                {renderStep(3, "Rédiger l'article", (
+                {selectedIdea !== null && renderStep(3, "Rédiger l'article", (
                      <button onClick={handleWriteArticle} disabled={loading === 'article'} className="bg-brand-green text-white font-semibold py-2 px-6 rounded-full hover:bg-brand-dark transition-all duration-300 disabled:bg-gray-400">
                         {loading === 'article' ? 'Rédaction en cours...' : `Rédiger sur "${selectedIdea}"`}
                     </button>
-                ), selectedIdea !== null)}
+                ))}
                 
-                {renderStep(4, "Aperçu et Publication", (
+                {generatedArticle && renderStep(4, "Aperçu et Publication", (
                     <div>
                         <div className="border rounded-lg p-6 bg-gray-50 prose prose-lg max-w-none prose-h2:text-brand-green prose-h3:text-brand-dark prose-a:text-brand-accent">
                            <h1 className="text-3xl font-bold font-serif text-brand-dark">{generatedArticle.title}</h1>
@@ -199,16 +197,16 @@ const AdminPage = () => {
                             Préparer la publication
                         </button>
                     </div>
-                ), generatedArticle !== null)}
+                ))}
 
-                {renderStep(5, "Mise à jour finale", (
+                {jsonOutput && renderStep(5, "Mise à jour finale", (
                     <div>
                         <p className="mb-4 text-gray-700">
                             <strong>Action requise :</strong> Pour publier votre nouvel article, copiez l'intégralité du texte ci-dessous et remplacez le contenu du fichier <code className="bg-gray-200 p-1 rounded text-sm">/blog/posts.json</code> de votre projet.
                         </p>
                         <textarea readOnly value={jsonOutput} className="w-full h-96 font-mono text-sm p-4 border rounded-md bg-gray-900 text-gray-200" />
                     </div>
-                ), jsonOutput !== null)}
+                ))}
             </div>
         </div>
     );
