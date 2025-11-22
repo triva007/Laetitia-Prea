@@ -31,7 +31,7 @@ const HomePage = () => {
                         </div>
 
                         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-brand-dark leading-[1.15] mb-6">
-                            Retrouver une alimentation équilibrée et riche en nutriments grâce à la <span className="text-brand-green">Nutrithérapie</span>
+                            Retrouvez une alimentation équilibrée et riche en nutriments grâce à la <span className="text-brand-green">Nutrithérapie</span>
                         </h1>
                         
                         <p className="text-lg sm:text-xl text-gray-600 mb-8 leading-relaxed max-w-lg mx-auto lg:mx-0">
