@@ -11,9 +11,43 @@ const PhoneIcon = () => (
 
 const Logo = () => (
     <div className="flex items-center space-x-3">
-        <div className="w-10 h-10 bg-brand-green rounded-xl flex items-center justify-center text-white">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
+        <div className="w-12 h-12 flex-shrink-0">
+            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                {/* Circle Border and Background */}
+                <circle cx="50" cy="50" r="48" stroke="#2F4858" strokeWidth="2.5" fill="white"/>
+                
+                {/* Dividers */}
+                <line x1="50" y1="2" x2="50" y2="98" stroke="#2F4858" strokeWidth="2.5"/>
+                <line x1="2" y1="50" x2="98" y2="50" stroke="#2F4858" strokeWidth="2.5"/>
+
+                {/* Top Left: Apple (Red) */}
+                <g transform="translate(12, 14) scale(0.85)">
+                   <path d="M15 12 C 10 7, 2 15, 6 22 C 6 28, 15 35, 20 35 C 25 35, 34 28, 34 22 C 38 15, 30 7, 25 12" fill="#DC2626"/>
+                   <path d="M20 12 Q 22 2, 28 4" stroke="#166534" strokeWidth="2" fill="none"/>
+                   <path d="M20 12 Q 12 4, 20 2 Z" fill="#4ADE80"/>
+                </g>
+
+                {/* Top Right: Wheat (Gold) */}
+                <g transform="translate(54, 8) scale(0.9)">
+                    <path d="M20 40 Q 20 15, 35 5" stroke="#D97706" strokeWidth="2" fill="none"/>
+                    <ellipse cx="32" cy="10" rx="3" ry="6" transform="rotate(20 32 10)" fill="#F59E0B"/>
+                    <ellipse cx="26" cy="18" rx="3" ry="6" transform="rotate(-20 26 18)" fill="#F59E0B"/>
+                    <ellipse cx="30" cy="26" rx="3" ry="6" transform="rotate(20 30 26)" fill="#F59E0B"/>
+                    <ellipse cx="24" cy="34" rx="3" ry="6" transform="rotate(-20 24 34)" fill="#F59E0B"/>
+                </g>
+
+                {/* Bottom Left: Carrot (Orange) */}
+                <g transform="translate(8, 54) scale(0.9)">
+                     <path d="M28 8 L 36 8 L 32 35 Z" fill="#F97316" transform="rotate(-40 32 20)"/>
+                     <path d="M30 5 L 30 10 M 34 5 L 34 10" stroke="#16A34A" strokeWidth="2" transform="rotate(-40 32 20)"/>
+                </g>
+
+                 {/* Bottom Right: Fish (Grey) */}
+                 <g transform="translate(52, 58) scale(0.85)">
+                     <path d="M5 18 Q 20 5, 35 18 Q 20 31, 5 18 Z" fill="#9CA3AF"/>
+                     <path d="M35 18 L 42 12 L 42 24 Z" fill="#9CA3AF"/>
+                     <circle cx="12" cy="15" r="1.5" fill="white"/>
+                 </g>
             </svg>
         </div>
         <div className="flex flex-col">
@@ -57,11 +91,11 @@ const Header = () => {
     <>
         <header 
             className={`sticky top-0 z-50 transition-all duration-300 ${
-                scrolled ? 'bg-white/95 backdrop-blur-md shadow-sm py-3' : 'bg-white py-4'
+                scrolled ? 'bg-white shadow-sm py-3' : 'bg-white py-4'
             }`}
         >
         <div className="container mx-auto px-4 sm:px-6 flex justify-between items-center">
-            <NavLink to="/" className="z-50 relative">
+            <NavLink to="/" className="z-50 relative group">
                 <Logo />
             </NavLink>
             
@@ -92,10 +126,10 @@ const Header = () => {
                 className="lg:hidden text-brand-dark focus:outline-none p-2 z-50"
                 aria-label="Menu"
             >
-                <div className="w-6 h-5 relative flex flex-col justify-between">
+                <div className="w-8 h-8 relative flex flex-col justify-center gap-1.5">
                     <span className={`w-full h-0.5 bg-current rounded-full transform transition-all duration-300 ${isMenuOpen ? 'rotate-45 translate-y-2' : ''}`} />
                     <span className={`w-full h-0.5 bg-current rounded-full transition-opacity duration-300 ${isMenuOpen ? 'opacity-0' : 'opacity-100'}`} />
-                    <span className={`w-full h-0.5 bg-current rounded-full transform transition-all duration-300 ${isMenuOpen ? '-rotate-45 -translate-y-2.5' : ''}`} />
+                    <span className={`w-full h-0.5 bg-current rounded-full transform transition-all duration-300 ${isMenuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
                 </div>
             </button>
         </div>
@@ -109,7 +143,7 @@ const Header = () => {
                     key={link.label}
                     to={link.path}
                     className={({ isActive }) =>
-                    `text-2xl font-serif font-bold ${
+                    `text-2xl font-serif font-bold py-2 ${
                         isActive ? 'text-brand-green' : 'text-brand-dark'
                     }`
                     }
@@ -120,10 +154,10 @@ const Header = () => {
                 
                 <div className="w-full h-px bg-gray-100 my-4"></div>
 
-                <a href={CONTACT_INFO.calendly} target="_blank" rel="noreferrer" className="w-full max-w-xs text-center bg-brand-green text-white font-bold py-4 rounded-full shadow-lg">
+                <a href={CONTACT_INFO.calendly} target="_blank" rel="noreferrer" className="w-full max-w-xs text-center bg-brand-green text-white font-bold py-4 rounded-full shadow-lg active:scale-95 transition-transform">
                     Prendre RDV en ligne
                 </a>
-                <a href={CONTACT_INFO.phoneLink} className="w-full max-w-xs text-center bg-brand-beige text-brand-dark font-bold py-4 rounded-full">
+                <a href={CONTACT_INFO.phoneLink} className="w-full max-w-xs text-center bg-brand-beige text-brand-dark font-bold py-4 rounded-full active:scale-95 transition-transform">
                     {CONTACT_INFO.phone}
                 </a>
             </nav>
