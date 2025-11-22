@@ -27,7 +27,7 @@ const HomePage = () => {
                               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-green opacity-75"></span>
                               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand-green"></span>
                             </span>
-                            <span className="text-xs font-bold uppercase tracking-widest text-brand-dark">Cabinet Saint-Cloud & Visio</span>
+                            <span className="text-xs font-bold uppercase tracking-widest text-brand-dark">Cabinet Saint-Cloud, Domicile & Visio</span>
                         </div>
 
                         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-brand-dark leading-[1.15] mb-6">
@@ -35,7 +35,7 @@ const HomePage = () => {
                         </h1>
                         
                         <p className="text-lg sm:text-xl text-gray-600 mb-8 leading-relaxed max-w-lg mx-auto lg:mx-0">
-                            Laetitia Préa, Nutrithérapeute. J'aide les femmes et les hommes à régler leurs problèmes de santé chroniques par l'alimentation et la micronutrition. Je vous guide également dans la sélection de vos produits alimentaires pour des choix plus sains au quotidien.
+                            Nutrithérapeute à Saint-Cloud, domicile et visio. Je règle vos problèmes de santé chroniques grâce à la micronutrition et vous guide dans le choix de vos produits alimentaires.
                         </p>
                         
                         <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">

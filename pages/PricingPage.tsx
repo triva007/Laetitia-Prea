@@ -93,7 +93,11 @@ const PricingPage = () => {
 
           <div className="mt-16 bg-white p-8 rounded-3xl border border-gray-100 max-w-3xl mx-auto">
              <h3 className="font-serif font-bold text-xl text-brand-dark mb-4">À savoir</h3>
-             <div className="grid sm:grid-cols-2 gap-6 text-sm text-gray-600">
+             <div className="grid sm:grid-cols-3 gap-6 text-sm text-gray-600">
+                <p>
+                    <strong className="block text-brand-green mb-1">Lieux de consultation</strong>
+                    Je vous reçois à mon <strong>cabinet de Saint-Cloud</strong>, en <strong>Visio</strong> (WhatsApp/Zoom) ou directement à votre <strong>Domicile</strong>.
+                </p>
                 <p>
                     <strong className="block text-brand-green mb-1">Remboursement</strong>
                     Les consultations ne sont pas remboursées par la Sécurité Sociale mais de nombreuses mutuelles prennent en charge les séances de nutrition/médecines douces.

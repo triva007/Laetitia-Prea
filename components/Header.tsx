@@ -12,43 +12,11 @@ const PhoneIcon = () => (
 const Logo = () => (
     <div className="flex items-center space-x-3">
         <div className="w-12 h-12 flex-shrink-0">
-            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                {/* Circle Border and Background */}
-                <circle cx="50" cy="50" r="48" stroke="#2F4858" strokeWidth="2.5" fill="white"/>
-                
-                {/* Dividers */}
-                <line x1="50" y1="2" x2="50" y2="98" stroke="#2F4858" strokeWidth="2.5"/>
-                <line x1="2" y1="50" x2="98" y2="50" stroke="#2F4858" strokeWidth="2.5"/>
-
-                {/* Top Left: Apple (Red) */}
-                <g transform="translate(12, 14) scale(0.85)">
-                   <path d="M15 12 C 10 7, 2 15, 6 22 C 6 28, 15 35, 20 35 C 25 35, 34 28, 34 22 C 38 15, 30 7, 25 12" fill="#DC2626"/>
-                   <path d="M20 12 Q 22 2, 28 4" stroke="#166534" strokeWidth="2" fill="none"/>
-                   <path d="M20 12 Q 12 4, 20 2 Z" fill="#4ADE80"/>
-                </g>
-
-                {/* Top Right: Wheat (Gold) */}
-                <g transform="translate(54, 8) scale(0.9)">
-                    <path d="M20 40 Q 20 15, 35 5" stroke="#D97706" strokeWidth="2" fill="none"/>
-                    <ellipse cx="32" cy="10" rx="3" ry="6" transform="rotate(20 32 10)" fill="#F59E0B"/>
-                    <ellipse cx="26" cy="18" rx="3" ry="6" transform="rotate(-20 26 18)" fill="#F59E0B"/>
-                    <ellipse cx="30" cy="26" rx="3" ry="6" transform="rotate(20 30 26)" fill="#F59E0B"/>
-                    <ellipse cx="24" cy="34" rx="3" ry="6" transform="rotate(-20 24 34)" fill="#F59E0B"/>
-                </g>
-
-                {/* Bottom Left: Carrot (Orange) */}
-                <g transform="translate(8, 54) scale(0.9)">
-                     <path d="M28 8 L 36 8 L 32 35 Z" fill="#F97316" transform="rotate(-40 32 20)"/>
-                     <path d="M30 5 L 30 10 M 34 5 L 34 10" stroke="#16A34A" strokeWidth="2" transform="rotate(-40 32 20)"/>
-                </g>
-
-                 {/* Bottom Right: Fish (Grey) */}
-                 <g transform="translate(52, 58) scale(0.85)">
-                     <path d="M5 18 Q 20 5, 35 18 Q 20 31, 5 18 Z" fill="#9CA3AF"/>
-                     <path d="M35 18 L 42 12 L 42 24 Z" fill="#9CA3AF"/>
-                     <circle cx="12" cy="15" r="1.5" fill="white"/>
-                 </g>
-            </svg>
+             <img 
+                src="https://i.postimg.cc/Vdr6HhwC/Capture-d-ecran-2025-11-22-171229.png" 
+                alt="Logo Laetitia Préa" 
+                className="w-full h-full object-contain"
+            />
         </div>
         <div className="flex flex-col">
             <span className="text-xl font-bold text-brand-dark font-serif leading-none tracking-tight">Laetitia Préa</span>
