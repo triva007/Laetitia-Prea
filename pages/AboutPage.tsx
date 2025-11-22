@@ -65,7 +65,7 @@ const AboutPage = () => {
                   Passionnée depuis toujours par les liens profonds entre l'alimentation, la santé et le bien-être, j'ai choisi de faire de la nutrithérapie mon métier. Mon parcours m'a permis de comprendre que la santé n'est pas simplement l'absence de maladie, mais un état complet de bien-être physique, mental et émotionnel.
                 </p>
                 <p>
-                  J'ai obtenu mon diplôme auprès du <strong>CFNA (Centre de Formation en Nutrithérapie et Phytothérapie Appliquée)</strong>, me garantissant une expertise pointue et actualisée en biochimie et physiologie.
+                   Je m'appuie sur une expertise pointue et actualisée en biochimie et physiologie pour vous proposer un accompagnement de qualité.
                 </p>
               </div>
 

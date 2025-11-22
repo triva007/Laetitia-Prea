@@ -42,9 +42,6 @@ const PricingPage = () => {
         <div className="bg-white pt-12 pb-16 rounded-b-[3rem] shadow-sm mb-12">
             <div className="container mx-auto px-4 text-center max-w-3xl">
                 <h1 className="text-4xl md:text-5xl font-bold font-serif text-brand-dark mb-4">Tarifs</h1>
-                <p className="text-lg text-gray-600">
-                    Investissez dans ce qui compte le plus : votre santé durable.
-                </p>
             </div>
         </div>
 

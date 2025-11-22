@@ -53,8 +53,8 @@ const HomePage = () => {
                             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[100%] bg-brand-light-green/20 rounded-[3rem] rotate-3 -z-10"></div>
                             
                             <img 
-                                src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=2070&auto=format&fit=crop" 
-                                alt="Alimentation saine et colorée" 
+                                src="https://i.postimg.cc/Sj76ZJyX/Gemini-Generated-Image-51z94751z94751z9.png" 
+                                alt="Alimentation saine et variée" 
                                 className="w-full h-auto rounded-[2.5rem] shadow-xl border-4 border-white object-cover aspect-[4/3] lg:aspect-square"
                             />
 
@@ -120,7 +120,7 @@ const HomePage = () => {
                 <div className="text-center md:text-left">
                     <h2 className="text-2xl md:text-3xl font-serif font-bold text-white mb-4">"Je ne soigne pas des symptômes, j'accompagne une personne."</h2>
                     <p className="text-brand-light-green/80 text-lg leading-relaxed mb-6 max-w-2xl">
-                        Diplômée du CFNA, je pratique une nutrithérapie scientifique et bienveillante. Mon but est de vous rendre autonome dans la gestion de votre santé, sans régime restrictif intenable.
+                        Je pratique une nutrithérapie scientifique et bienveillante. Mon but est de vous rendre autonome dans la gestion de votre santé, sans régime restrictif intenable.
                     </p>
                     <Link to="/a-propos" className="bg-white/10 hover:bg-white/20 text-white px-6 py-3 rounded-full transition-colors font-medium text-sm tracking-wide">
                         Lire mon histoire
