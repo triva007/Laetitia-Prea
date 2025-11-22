@@ -35,7 +35,7 @@ const HomePage = () => {
                         </h1>
                         
                         <p className="text-lg sm:text-xl text-gray-600 mb-8 leading-relaxed max-w-lg mx-auto lg:mx-0">
-                            Laetitia Préa, Nutrithérapeute. J'aide les femmes et les hommes à régler leurs problèmes de santé chroniques par l'alimentation et la micronutrition.
+                            Laetitia Préa, Nutrithérapeute. J'aide les femmes et les hommes à régler leurs problèmes de santé chroniques par l'alimentation et la micronutrition. Je vous guide également dans la sélection de vos produits alimentaires pour des choix plus sains au quotidien.
                         </p>
                         
                         <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">

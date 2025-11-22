@@ -84,8 +84,8 @@ const AboutPage = () => {
                         <p className="text-sm text-gray-600">Optimisation cellulaire (vitamines, minéraux).</p>
                     </div>
                     <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
-                         <h4 className="font-bold text-brand-green mb-2">Psycho-nutrition</h4>
-                        <p className="text-sm text-gray-600">Gestion du comportement et des émotions.</p>
+                         <h4 className="font-bold text-brand-green mb-2">Rééducation nutritionnelle et alimentaire</h4>
+                        <p className="text-sm text-gray-600">Acquérir les bons réflexes pour une alimentation santé.</p>
                     </div>
                 </div>
               </div>

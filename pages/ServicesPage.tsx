@@ -87,9 +87,9 @@ const ServicesPage = () => {
                 icon="🛒" 
                 color="bg-yellow-400"
                 items={[
+                    "Sélection des produits alimentaires",
                     "Apprendre à lire les étiquettes",
                     "Organiser ses courses et menus",
-                    "Idées recettes simples et rapides",
                     "Astuces pour manger sain en famille"
                 ]}
             />
