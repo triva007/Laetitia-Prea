@@ -5,7 +5,7 @@ const LireEtiquettesAlimentaires = () => {
   return (
     <>
       <p>
-        Faire ses courses est devenu un véritable parcours du combattant. Entre les allégations marketing "riche en fibres", "pauvre en sucres" et les listes d'ingrédients à rallonge, il est difficile de savoir ce que l'on met vraiment dans son caddie. En tant que nutrithérapeute, je vous guide pour devenir un consommateur averti.
+        Faire ses courses est devenu un véritable parcours du combattant. Entre les allégations marketing "riche en fibres", "pauvre en sucres" et les listes d'ingrédients à rallonge, il est difficile de savoir ce que l'on met vraiment dans son caddie. En tant que Nutrithérapeute, je vous guide pour devenir un consommateur averti.
       </p>
 
       <h2>Règle n°1 : La liste des ingrédients est votre meilleure amie</h2>
@@ -32,7 +32,7 @@ const LireEtiquettesAlimentaires = () => {
         <strong>Le piège à éviter :</strong> Comparez toujours l'étiquette d'un produit allégé avec son équivalent classique. Vous pourriez être surpris. Il est souvent préférable de consommer une version non allégée en plus petite quantité.
       </p>
 
-      <h3>Mon conseil de nutrithérapeute à Boulogne et Saint-Cloud</h3>
+      <h3>Mon conseil de Nutrithérapeute à Boulogne et Saint-Cloud</h3>
       <p>
         Prenez le temps de lire les étiquettes. Au début, cela peut sembler fastidieux, mais vous prendrez vite l'habitude. Privilégiez les produits bruts et non transformés autant que possible. C'est la base d'une alimentation saine et équilibrée. Si vous habitez à Boulogne-Billancourt, Saint-Cloud ou dans les environs et que vous avez besoin d'aide pour y voir plus clair, un accompagnement personnalisé peut être très utile pour faire les bons choix au quotidien.
       </p>

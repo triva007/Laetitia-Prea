@@ -32,9 +32,9 @@ const MicronutritionEnergie = () => {
         </li>
       </ul>
 
-      <h3>L'approche de votre nutrithérapeute à Saint-Cloud et Boulogne</h3>
+      <h3>L'approche de votre Nutrithérapeute à Saint-Cloud et Boulogne</h3>
       <p>
-        En tant que nutrithérapeute spécialisée en micronutrition à Saint-Cloud et Boulogne-Billancourt, mon travail consiste à évaluer vos éventuels déficits grâce à des questionnaires détaillés et, si besoin, des bilans biologiques fonctionnels.
+        En tant que Nutrithérapeute spécialisée en micronutrition à Saint-Cloud et Boulogne-Billancourt, mon travail consiste à évaluer vos éventuels déficits grâce à des questionnaires détaillés et, si besoin, des bilans biologiques fonctionnels.
       </p>
       <p>
         Une fois les carences identifiées, nous mettons en place une stratégie personnalisée :

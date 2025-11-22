@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+
+import React, { useState, useEffect } from 'react';
+import { NavLink, useLocation } from 'react-router-dom';
 import { NAV_LINKS, CONTACT_INFO } from '../constants';
 
 const PhoneIcon = () => (
@@ -9,81 +10,125 @@ const PhoneIcon = () => (
 );
 
 const Logo = () => (
-    <div className="flex items-center space-x-2">
-        <svg className="h-8 w-8 text-brand-green" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="64" height="64" rx="12" fill="currentColor"/>
-            <path d="M32 12C32 12 44 20 44 32C44 44 32 52 32 52C32 52 20 44 20 32C20 20 32 12 32 12Z" fill="#F7F3E9"/>
-            <path d="M32 12V52" stroke="#5E8B7E" strokeWidth="2"/>
-        </svg>
-        <span className="text-xl md:text-2xl font-bold text-brand-dark font-serif">Laetitia Préa</span>
+    <div className="flex items-center space-x-3">
+        <div className="w-10 h-10 bg-brand-green rounded-xl flex items-center justify-center text-white">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
+            </svg>
+        </div>
+        <div className="flex flex-col">
+            <span className="text-xl font-bold text-brand-dark font-serif leading-none tracking-tight">Laetitia Préa</span>
+            <span className="text-[10px] uppercase tracking-widest text-gray-500 font-medium mt-0.5">Nutrithérapeute</span>
+        </div>
     </div>
 );
 
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
 
-  const activeLinkClass = 'text-brand-accent';
-  const inactiveLinkClass = 'hover:text-brand-accent transition-colors duration-300';
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [location]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Prevent body scroll when menu is open
+  useEffect(() => {
+    if (isMenuOpen) {
+        document.body.style.overflow = 'hidden';
+    } else {
+        document.body.style.overflow = 'unset';
+    }
+  }, [isMenuOpen]);
+
+  const activeLinkClass = 'text-brand-dark font-bold bg-brand-beige px-3 py-1 rounded-full';
+  const inactiveLinkClass = 'text-gray-500 hover:text-brand-green transition-colors px-3 py-1 font-medium';
 
   return (
-    <header className="bg-brand-beige sticky top-0 z-50 shadow-md">
-      <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-        <NavLink to="/">
-          <Logo />
-        </NavLink>
-        <nav className="hidden lg:flex items-center space-x-6">
-          {NAV_LINKS.map((link) => (
-            <NavLink
-              key={link.label}
-              to={link.path}
-              className={({ isActive }) =>
-                `font-medium ${isActive ? activeLinkClass : inactiveLinkClass}`
-              }
-            >
-              {link.label}
+    <>
+        <header 
+            className={`sticky top-0 z-50 transition-all duration-300 ${
+                scrolled ? 'bg-white/95 backdrop-blur-md shadow-sm py-3' : 'bg-white py-4'
+            }`}
+        >
+        <div className="container mx-auto px-4 sm:px-6 flex justify-between items-center">
+            <NavLink to="/" className="z-50 relative">
+                <Logo />
             </NavLink>
-          ))}
-        </nav>
-        <div className="hidden lg:flex items-center space-x-2">
-            <a href={CONTACT_INFO.phoneLink} className="flex items-center text-sm bg-brand-green text-white font-semibold py-2 px-4 rounded-full hover:bg-brand-dark transition-all duration-300">
-                <PhoneIcon />
-                Appeler
-            </a>
-        </div>
-        <div className="lg:hidden">
-          <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-brand-dark focus:outline-none">
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16m-7 6h7"}></path>
-            </svg>
-          </button>
-        </div>
-      </div>
-      {isMenuOpen && (
-        <div className="lg:hidden bg-brand-beige pb-4">
-          <nav className="flex flex-col items-center space-y-4">
+            
+            {/* Desktop Nav */}
+            <nav className="hidden lg:flex items-center space-x-6">
             {NAV_LINKS.map((link) => (
-              <NavLink
+                <NavLink
                 key={link.label}
                 to={link.path}
-                onClick={() => setIsMenuOpen(false)}
                 className={({ isActive }) =>
-                  `text-lg ${isActive ? activeLinkClass : inactiveLinkClass}`
+                    isActive ? activeLinkClass : inactiveLinkClass
                 }
-              >
+                >
                 {link.label}
-              </NavLink>
+                </NavLink>
             ))}
-            <div className="flex flex-col space-y-3 pt-4">
-                <a href={CONTACT_INFO.phoneLink} className="flex items-center justify-center bg-brand-green text-white font-semibold py-2 px-6 rounded-full hover:bg-brand-dark transition-all duration-300">
-                    <PhoneIcon />
-                    Appeler Laetitia
+            </nav>
+
+            <div className="hidden lg:flex items-center space-x-4">
+                <a href={CONTACT_INFO.calendly} target="_blank" rel="noreferrer" className="flex items-center text-sm bg-brand-dark text-white font-semibold py-2.5 px-6 rounded-full hover:bg-brand-green hover:shadow-lg transition-all duration-300">
+                    Prendre RDV
                 </a>
             </div>
-          </nav>
+
+            {/* Mobile Toggle */}
+            <button 
+                onClick={() => setIsMenuOpen(!isMenuOpen)} 
+                className="lg:hidden text-brand-dark focus:outline-none p-2 z-50"
+                aria-label="Menu"
+            >
+                <div className="w-6 h-5 relative flex flex-col justify-between">
+                    <span className={`w-full h-0.5 bg-current rounded-full transform transition-all duration-300 ${isMenuOpen ? 'rotate-45 translate-y-2' : ''}`} />
+                    <span className={`w-full h-0.5 bg-current rounded-full transition-opacity duration-300 ${isMenuOpen ? 'opacity-0' : 'opacity-100'}`} />
+                    <span className={`w-full h-0.5 bg-current rounded-full transform transition-all duration-300 ${isMenuOpen ? '-rotate-45 -translate-y-2.5' : ''}`} />
+                </div>
+            </button>
         </div>
-      )}
-    </header>
+        </header>
+
+        {/* Mobile Menu Overlay */}
+        <div className={`fixed inset-0 bg-white z-40 lg:hidden flex flex-col justify-center items-center transition-all duration-300 ${isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}`}>
+            <nav className="flex flex-col items-center space-y-6 w-full px-8">
+                {NAV_LINKS.map((link) => (
+                <NavLink
+                    key={link.label}
+                    to={link.path}
+                    className={({ isActive }) =>
+                    `text-2xl font-serif font-bold ${
+                        isActive ? 'text-brand-green' : 'text-brand-dark'
+                    }`
+                    }
+                >
+                    {link.label}
+                </NavLink>
+                ))}
+                
+                <div className="w-full h-px bg-gray-100 my-4"></div>
+
+                <a href={CONTACT_INFO.calendly} target="_blank" rel="noreferrer" className="w-full max-w-xs text-center bg-brand-green text-white font-bold py-4 rounded-full shadow-lg">
+                    Prendre RDV en ligne
+                </a>
+                <a href={CONTACT_INFO.phoneLink} className="w-full max-w-xs text-center bg-brand-beige text-brand-dark font-bold py-4 rounded-full">
+                    {CONTACT_INFO.phone}
+                </a>
+            </nav>
+        </div>
+    </>
   );
 };
 

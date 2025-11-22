@@ -1,77 +1,107 @@
+
 import React from 'react';
+import SEO from '../components/SEO';
+import { CTAButtons } from '../components/CTAButtons';
 
-// Meta Title: Accompagnements Nutrition à Saint-Cloud & Boulogne | Laetitia Préa
-// Meta Description: Découvrez mes accompagnements en nutrition à Boulogne et Saint-Cloud : nutrition clinique, micronutrition... Solutions personnalisées.
-
-interface ServiceCardProps {
-  title: string;
-  children?: React.ReactNode;
-}
-
-const ServiceCard = ({ title, children }: ServiceCardProps) => (
-  <div className="bg-white p-6 sm:p-8 rounded-lg shadow-lg transform hover:-translate-y-2 transition-transform duration-300">
-    <h2 className="text-2xl md:text-3xl font-serif font-semibold text-brand-green mb-4">{title}</h2>
-    <div className="text-gray-700 space-y-4 leading-relaxed">
-      {children}
+const ServiceCard = ({ title, icon, color, items }: { title: string, icon: string, color: string, items: string[] }) => (
+  <div className={`bg-white p-8 rounded-[2rem] shadow-sm border border-gray-100 h-full flex flex-col relative overflow-hidden group hover:shadow-xl transition-all duration-300`}>
+    <div className={`absolute top-0 left-0 w-full h-2 ${color}`}></div>
+    <div className="flex items-center gap-4 mb-6">
+        <div className="w-14 h-14 rounded-2xl bg-[#FDFBF7] flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">
+            {icon}
+        </div>
+        <h2 className="text-2xl font-serif font-bold text-brand-dark leading-tight">{title}</h2>
     </div>
+    
+    <ul className="space-y-4 mb-8 flex-grow">
+        {items.map((item, i) => (
+            <li key={i} className="flex items-start text-gray-600 leading-relaxed">
+                <span className={`mr-3 mt-1.5 w-2 h-2 rounded-full ${color.replace('bg-', 'bg-')}`}></span>
+                {item}
+            </li>
+        ))}
+    </ul>
   </div>
 );
 
 const ServicesPage = () => {
   return (
-    <div className="container mx-auto px-4 sm:px-6 py-12 md:py-20">
-      <div className="text-center mb-12">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold font-serif text-brand-dark">Mes Accompagnements</h1>
-        <p className="mt-4 text-base md:text-lg max-w-3xl mx-auto text-gray-600">Une approche structurée autour de quatre piliers fondamentaux pour un bien-être complet et durable, que vous soyez à Boulogne, Saint-Cloud ou aux alentours.</p>
-      </div>
-      <div className="space-y-12">
+    <>
+      <SEO 
+        title="Accompagnements Nutrition | Laetitia Préa Saint-Cloud"
+        description="Nutrition clinique, Micronutrition, Rééducation alimentaire. Découvrez mes accompagnements personnalisés à Saint-Cloud et Boulogne."
+      />
+      <div className="bg-[#FDFBF7] min-h-screen">
         
-        <ServiceCard title="Nutrition Clinique">
-          <p>La nutrition clinique est la base de mon approche. Elle consiste à utiliser l'alimentation comme un véritable outil thérapeutique pour prévenir ou accompagner diverses pathologies.</p>
-          <h3 className="font-semibold text-brand-dark mb-2 mt-4">Bénéfices :</h3>
-          <ul className="list-disc list-inside space-y-1">
-            <li>Élaboration d'un bilan nutritionnel complet et détaillé.</li>
-            <li>Création d'un plan alimentaire 100% personnalisé à vos besoins.</li>
-            <li>Soutien dans la gestion de pathologies (diabète, cholestérol, troubles digestifs...).</li>
-            <li>Optimisation de votre santé globale par l'alimentation.</li>
-          </ul>
-        </ServiceCard>
+        {/* Simple Header */}
+        <div className="bg-white pt-12 pb-16 rounded-b-[3rem] shadow-sm mb-12">
+            <div className="container mx-auto px-4 text-center max-w-3xl">
+                <h1 className="text-4xl md:text-5xl font-bold font-serif text-brand-dark mb-4">Mes Accompagnements</h1>
+                <p className="text-lg text-gray-600">
+                    Des solutions concrètes et adaptées à votre physiologie.
+                </p>
+            </div>
+        </div>
 
-        <ServiceCard title="Micronutrition">
-          <p>La micronutrition s'intéresse aux molécules essentielles au bon fonctionnement de notre corps : vitamines, minéraux, oligo-éléments... Un déficit peut avoir des conséquences importantes sur votre bien-être.</p>
-          <h3 className="font-semibold text-brand-dark mb-2 mt-4">Bénéfices :</h3>
-          <ul className="list-disc list-inside space-y-1">
-            <li>Correction des carences pour une vitalité retrouvée.</li>
-            <li>Amélioration significative de la qualité de votre sommeil.</li>
-            <li>Meilleure gestion du stress et de l'anxiété.</li>
-            <li>Renforcement de votre système immunitaire et de votre énergie.</li>
-          </ul>
-        </ServiceCard>
-        
-        <ServiceCard title="Rééducation Nutritionnelle">
-          <p>Oubliez les régimes frustrants. La rééducation nutritionnelle vise à modifier vos habitudes en profondeur et en douceur pour des résultats qui s'inscrivent dans la durée. C'est un véritable apprentissage.</p>
-          <h3 className="font-semibold text-brand-dark mb-2 mt-4">Bénéfices :</h3>
-          <ul className="list-disc list-inside space-y-1">
-            <li>Rééquilibrage alimentaire progressif et sans privation.</li>
-            <li>Mise en place d'habitudes saines et durables.</li>
-            <li>Retrouver une relation apaisée et intuitive avec la nourriture.</li>
-            <li>Gagner en autonomie dans vos choix alimentaires quotidiens.</li>
-          </ul>
-        </ServiceCard>
+        <div className="container mx-auto px-4 sm:px-6 pb-20">
+          <div className="grid md:grid-cols-2 gap-6 lg:gap-8 max-w-5xl mx-auto">
+            
+            <ServiceCard 
+                title="Nutrition Clinique" 
+                icon="🩺" 
+                color="bg-brand-green"
+                items={[
+                    "Gestion du diabète & cholestérol",
+                    "Troubles digestifs (SII, ballonnements)",
+                    "Hypertension & santé cardiovasculaire",
+                    "Analyse de vos bilans sanguins"
+                ]}
+            />
 
-        <ServiceCard title="Sélection des produits alimentaires">
-          <p>Faire ses courses peut devenir un casse-tête. Je vous accompagne pour vous apprendre à faire les bons choix, à décrypter les emballages et à privilégier une alimentation de qualité.</p>
-          <h3 className="font-semibold text-brand-dark mb-2 mt-4">Bénéfices :</h3>
-          <ul className="list-disc list-inside space-y-1">
-            <li>Apprendre à lire et comprendre les étiquettes nutritionnelles.</li>
-            <li>Identifier et réduire la consommation de produits ultra-transformés.</li>
-            <li>Faire des choix éclairés pour votre santé et celle de votre famille.</li>
-            <li>Composer des repas sains, rapides et savoureux.</li>
-          </ul>
-        </ServiceCard>
+            <ServiceCard 
+                title="Micronutrition" 
+                icon="🧬" 
+                color="bg-brand-accent"
+                items={[
+                    "Fatigue chronique & manque d'énergie",
+                    "Déficits en vitamines & minéraux",
+                    "Gestion du stress & de l'humeur",
+                    "Protocole de compléments sur-mesure"
+                ]}
+            />
+            
+            <ServiceCard 
+                title="Perte de Poids" 
+                icon="⚖️" 
+                color="bg-blue-400"
+                items={[
+                    "Sortir de l'effet yo-yo",
+                    "Comprendre votre métabolisme",
+                    "Manger à sa faim sans frustration",
+                    "Réconciliation avec votre image"
+                ]}
+            />
 
+            <ServiceCard 
+                title="Coaching Quotidien" 
+                icon="🛒" 
+                color="bg-yellow-400"
+                items={[
+                    "Apprendre à lire les étiquettes",
+                    "Organiser ses courses et menus",
+                    "Idées recettes simples et rapides",
+                    "Astuces pour manger sain en famille"
+                ]}
+            />
+          </div>
+
+          <div className="mt-16 text-center">
+             <h3 className="text-2xl font-serif font-bold text-brand-dark mb-6">On en discute ?</h3>
+             <CTAButtons />
+          </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

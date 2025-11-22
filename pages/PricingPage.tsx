@@ -1,57 +1,112 @@
+
 import React from 'react';
+import SEO from '../components/SEO';
+import { CTAButtons } from '../components/CTAButtons';
 
-// Meta Title: Tarifs Nutrithérapeute Laetitia Préa - Saint-Cloud & Boulogne
-// Meta Description: Consultez les tarifs de votre nutrithérapeute à Saint-Cloud et Boulogne-Billancourt. Formules d'accompagnement nutritionnel personnalisé.
-
-interface PricingCardProps {
-  title: string;
-  duration: string;
-  price: string;
-  children?: React.ReactNode;
-  featured?: boolean;
-}
-
-const PricingCard = ({ title, duration, price, children, featured = false }: PricingCardProps) => (
-  <div className={`border-2 rounded-lg p-6 sm:p-8 text-center flex flex-col ${featured ? 'border-brand-green bg-white shadow-2xl md:scale-105' : 'border-gray-200 bg-white'}`}>
-    <h2 className="text-2xl font-semibold text-brand-dark">{title}</h2>
-    <p className="text-gray-500 mt-2">{duration}</p>
-    <p className="text-5xl font-bold text-brand-green my-6">{price} €</p>
-    <div className="text-left text-gray-600 space-y-4 flex-grow">
-      {children}
+const PriceItem = ({ title, price, duration, features, recommended = false }: { title: string, price: string, duration: string, features: string[], recommended?: boolean }) => (
+    <div className={`p-8 rounded-3xl border ${recommended ? 'bg-brand-dark text-white border-brand-dark shadow-xl scale-100 md:scale-105 z-10' : 'bg-white text-brand-dark border-gray-100 shadow-sm'}`}>
+        {recommended && <div className="text-brand-accent text-xs font-bold uppercase tracking-widest mb-4">Recommandé</div>}
+        <h3 className="text-2xl font-serif font-bold mb-2">{title}</h3>
+        <div className="flex items-baseline mb-6">
+            <span className="text-4xl font-bold">{price}€</span>
+            <span className={`ml-2 text-sm ${recommended ? 'text-gray-300' : 'text-gray-500'}`}>/ séance</span>
+        </div>
+        <div className={`inline-block px-3 py-1 rounded-lg text-sm font-medium mb-8 ${recommended ? 'bg-white/10' : 'bg-gray-100'}`}>
+            Durée : {duration}
+        </div>
+        <ul className="space-y-4">
+            {features.map((f, i) => (
+                <li key={i} className="flex items-start text-sm">
+                    <span className={`mr-3 mt-0.5 ${recommended ? 'text-brand-accent' : 'text-brand-green'}`}>✓</span>
+                    <span className={recommended ? 'text-gray-200' : 'text-gray-600'}>{f}</span>
+                </li>
+            ))}
+        </ul>
+        <div className="mt-8">
+            <a href="https://calendly.com/laetitiaprea/30min" target="_blank" rel="noreferrer" className={`block w-full text-center py-3.5 rounded-xl font-bold transition-all ${recommended ? 'bg-brand-green text-white hover:bg-white hover:text-brand-dark' : 'bg-brand-beige text-brand-dark hover:bg-brand-green hover:text-white'}`}>
+                Réserver
+            </a>
+        </div>
     </div>
-  </div>
 );
 
 const PricingPage = () => {
   return (
-    <div className="container mx-auto px-4 sm:px-6 py-12 md:py-20">
-      <div className="text-center mb-12">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold font-serif text-brand-dark">Formules et Tarifs</h1>
-        <p className="mt-4 text-base md:text-lg max-w-3xl mx-auto text-gray-600">Des accompagnements clairs et adaptés à vos besoins à Saint-Cloud et Boulogne, pour un investissement durable dans votre santé.</p>
-      </div>
-
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center justify-center max-w-sm mx-auto lg:max-w-none">
+    <>
+      <SEO 
+        title="Tarifs Consultations | Saint-Cloud"
+        description="Tarifs clairs et transparents pour vos consultations de nutrithérapie."
+      />
+      <div className="bg-[#FDFBF7] min-h-screen">
         
-        <PricingCard title="Première Séance" duration="1h" price="90">
-            <p>Un premier rendez-vous essentiel pour faire connaissance, réaliser un bilan complet de votre situation et définir ensemble vos objectifs.</p>
-        </PricingCard>
+        <div className="bg-white pt-12 pb-16 rounded-b-[3rem] shadow-sm mb-12">
+            <div className="container mx-auto px-4 text-center max-w-3xl">
+                <h1 className="text-4xl md:text-5xl font-bold font-serif text-brand-dark mb-4">Tarifs</h1>
+                <p className="text-lg text-gray-600">
+                    Investissez dans ce qui compte le plus : votre santé durable.
+                </p>
+            </div>
+        </div>
 
-        <PricingCard title="Séance de Suivi" duration="45 min" price="70" featured={true}>
-          <p>Pour ajuster votre programme, répondre à vos questions et vous accompagner pas à pas vers l'atteinte de vos objectifs.</p>
-        </PricingCard>
+        <div className="container mx-auto px-4 sm:px-6 pb-20">
+          <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto items-start">
+            
+            <PriceItem 
+                title="Bilan Initial" 
+                price="90" 
+                duration="1h15"
+                features={[
+                    "Analyse complète de votre santé",
+                    "Enquête alimentaire & micronutritionnelle",
+                    "Premiers conseils personnalisés",
+                    "Plan d'action initial"
+                ]}
+            />
 
-        <PricingCard title="Séance Flash" duration="1h30" price="140">
-          <p>Une séance unique et intensive pour un bilan complet et la mise en place d'une stratégie de rééducation nutritionnelle ciblée.</p>
-        </PricingCard>
-        
+            <PriceItem 
+                title="Suivi" 
+                price="70" 
+                duration="45 min"
+                recommended={true}
+                features={[
+                    "Ajustement du protocole",
+                    "Analyse des progrès",
+                    "Soutien motivationnel",
+                    "Réponses à toutes vos questions",
+                    "Adaptation des compléments"
+                ]}
+            />
+
+            <PriceItem 
+                title="Séance Flash" 
+                price="140" 
+                duration="1h30"
+                features={[
+                    "Pour une problématique unique",
+                    "Audit express",
+                    "Stratégie 'Quick Wins'",
+                    "Idéal pour débloquer une situation"
+                ]}
+            />
+            
+          </div>
+
+          <div className="mt-16 bg-white p-8 rounded-3xl border border-gray-100 max-w-3xl mx-auto">
+             <h3 className="font-serif font-bold text-xl text-brand-dark mb-4">À savoir</h3>
+             <div className="grid sm:grid-cols-2 gap-6 text-sm text-gray-600">
+                <p>
+                    <strong className="block text-brand-green mb-1">Remboursement</strong>
+                    Les consultations ne sont pas remboursées par la Sécurité Sociale mais de nombreuses mutuelles prennent en charge les séances de nutrition/médecines douces.
+                </p>
+                <p>
+                    <strong className="block text-brand-green mb-1">Paiement</strong>
+                    Règlement par chèque, espèces ou virement instantané. Le paiement s'effectue à la fin de la séance.
+                </p>
+             </div>
+          </div>
+        </div>
       </div>
-
-      <div className="mt-16 text-center text-gray-700 max-w-3xl mx-auto">
-        <h3 className="text-2xl font-semibold text-brand-dark mb-4">Informations importantes</h3>
-        <p>Les consultations ne sont pas remboursées par la Sécurité Sociale, mais de nombreuses mutuelles proposent une prise en charge. Renseignez-vous auprès de la vôtre.</p>
-        <p className="mt-4 font-semibold">Moyens de paiement acceptés : chèque, espèces, virement.</p>
-      </div>
-    </div>
+    </>
   );
 };
 

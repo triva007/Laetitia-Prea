@@ -5,7 +5,7 @@ const DifferenceNutritionnisteNutritherapeute = () => {
   return (
     <>
       <p>
-        Lorsque l'on cherche un accompagnement pour améliorer son alimentation, il n'est pas toujours facile de s'y retrouver entre les différents professionnels. À Saint-Cloud ou Boulogne-Billancourt, les termes "nutritionniste" et "nutrithérapeute" sont souvent utilisés, mais ils ne recouvrent pas exactement la même réalité. Faisons le point pour vous aider à faire le bon choix.
+        Lorsque l'on cherche un accompagnement pour améliorer son alimentation, il n'est pas toujours facile de s'y retrouver entre les différents professionnels. À Saint-Cloud ou Boulogne-Billancourt, les termes "nutritionniste" et "Nutrithérapeute" sont souvent utilisés, mais ils ne recouvrent pas exactement la même réalité. Faisons le point pour vous aider à faire le bon choix.
       </p>
 
       <h2>Le Nutritionniste : un titre protégé</h2>
@@ -18,7 +18,7 @@ const DifferenceNutritionnisteNutritherapeute = () => {
 
       <h2>Le Nutrithérapeute : une approche fonctionnelle et préventive</h2>
       <p>
-        La nutrithérapie, quant à elle, est une discipline plus récente qui adopte une approche fonctionnelle et préventive. En tant que nutrithérapeute à Saint-Cloud et Boulogne, mon rôle est de chercher les causes profondes de vos déséquilibres. Je m'intéresse non seulement à ce que vous mangez, mais aussi à la manière dont votre corps assimile et utilise les nutriments.
+        La nutrithérapie, quant à elle, est une discipline plus récente qui adopte une approche fonctionnelle et préventive. En tant que Nutrithérapeute à Saint-Cloud et Boulogne, mon rôle est de chercher les causes profondes de vos déséquilibres. Je m'intéresse non seulement à ce que vous mangez, mais aussi à la manière dont votre corps assimile et utilise les nutriments.
       </p>
       <p>
         Mon approche intègre la micronutrition, qui se concentre sur l'impact des vitamines, minéraux, oligo-éléments et autres micronutriments sur votre santé. L'objectif est d'optimiser le fonctionnement de vos cellules pour retrouver énergie, vitalité et prévenir les problèmes de santé.
@@ -30,7 +30,7 @@ const DifferenceNutritionnisteNutritherapeute = () => {
           <strong>Consultez un médecin-nutritionniste</strong> pour la prise en charge d'une pathologie lourde nécessitant un diagnostic médical et éventuellement une prescription.
         </li>
         <li>
-          <strong>Consultez un nutrithérapeute</strong> pour une approche préventive, pour optimiser votre bien-être, corriger des déséquilibres fonctionnels (fatigue, stress, troubles digestifs) et apprendre à utiliser l'alimentation comme un véritable outil de santé au quotidien.
+          <strong>Consultez un Nutrithérapeute</strong> pour une approche préventive, pour optimiser votre bien-être, corriger des déséquilibres fonctionnels (fatigue, stress, troubles digestifs) et apprendre à utiliser l'alimentation comme un véritable outil de santé au quotidien.
         </li>
       </ul>
       <p>

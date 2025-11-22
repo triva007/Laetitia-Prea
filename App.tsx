@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { HashRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
@@ -11,21 +11,10 @@ import ContactPage from './pages/ContactPage';
 import BlogListPage from './pages/BlogListPage';
 import BlogPostPage from './pages/BlogPostPage';
 
-const ScrollToTop = () => {
-  const { pathname } = useLocation();
-
-  React.useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-
-  return null;
-};
-
 function App() {
   return (
     <HashRouter>
-      <ScrollToTop />
-      <div className="bg-brand-beige min-h-screen font-sans text-brand-dark flex flex-col leading-relaxed">
+      <div className="bg-[#FDFBF7] min-h-screen font-sans text-brand-dark flex flex-col leading-relaxed">
         <Header />
         <main className="flex-grow">
           <Routes>
